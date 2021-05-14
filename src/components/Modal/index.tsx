@@ -5,28 +5,15 @@ interface IModalProps {
   children: ReactNode;
   setIsOpen: () => void;
   isOpen: boolean;
-  modalStatus?: any;
+  modalStatus?: boolean;
 }
 
 export function Modal({ children, modalStatus, isOpen, setIsOpen }: IModalProps) {
-  // useEffect(() => {
-
-  // }, []);
-
-  // function componentDidUpdate(prevProps) {
-  //   const { isOpen } = this.props;
-
-  //   if (prevProps.isOpen !== isOpen) {
-  //     console.log(this.props)
-  //     this.setState({ modalStatus: isOpen })
-  //   }
-  // }
-
   return (
     <ReactModal
       shouldCloseOnOverlayClick={!false}
       onRequestClose={setIsOpen}
-      isOpen={modalStatus}
+      isOpen={isOpen}
       ariaHideApp={false}
       style={{
         content: {
