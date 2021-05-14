@@ -13,7 +13,7 @@ import { Container } from './styles';
 
 interface ICustomInputProps {
   name: string;
-  icon: IconType;
+  icon?: IconType;
 }
 
 type IInputProps = JSX.IntrinsicElements['input'] & ICustomInputProps;
