@@ -11,15 +11,8 @@ import { IFood } from '../../types';
 interface IModalEditFoodProps {
   isOpen: boolean;
   setIsOpen: () => void;
-  editingFood: IFood;
-  handleUpdateFood: (data: FormData) => void;
-}
-
-interface FormData {
-  image: string;
-  name: string;
-  price: number;
-  description: string;
+  editingFood: IFood | undefined;
+  handleUpdateFood: (food: IFood) => void;
 }
 
 export function ModalEditFood({
@@ -30,7 +23,7 @@ export function ModalEditFood({
 }: IModalEditFoodProps) {
   const formRef = createRef<FormHandles>()
 
-  const handleSubmit: SubmitHandler<FormData> = async (data) => {
+  const handleSubmit: SubmitHandler<IFood> = async (data) => {
     handleUpdateFood(data);
     setIsOpen();
   };
